@@ -1,0 +1,28 @@
+Modular and Class-Based Design
+
+The project is divided into small modules so things stay organized and easy to work with.
+Most of the important parts are written using classes, which makes the code cleaner and easier to extend later.
+
+1. Database Layer
+I have kept all MongoDB-related work inside separate classes:
+
+MasterDB – handles storing and fetching organization details.
+
+OrganizationDB – manages data for each organization in its own collection.
+
+This way, database code doesn’t mix with the API code.
+
+2. Authentication Layer
+JWT creation and verification is handled by a separate class.
+This keeps all auth-related logic in one place.
+
+3. Service Layer
+The main business logic like creating an organization, updating it, or deleting it is written inside service classes.
+The API routes simply call these functions instead of writing logic directly inside the routes.
+
+4. API Layer
+The API layer only contains the endpoints.
+Each endpoint passes the request to the correct service class, which makes the routes clean and simple.
+
+Overall, separating things like this makes the project easier to read and maintain.
+If any new feature needs to be added later, it can be done without disturbing the other parts.
